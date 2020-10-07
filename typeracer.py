@@ -26,7 +26,6 @@ class TypeRacerBot:
             self.enter_race()
 
         sleep(2)
-        print(self.get_text())
         while not self.has_started():
             pass
 
