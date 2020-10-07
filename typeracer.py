@@ -26,6 +26,7 @@ class TypeRacerBot:
             self.enter_race()
 
         sleep(2)
+        print(self.get_text())
         while not self.has_started():
             pass
 
@@ -55,10 +56,10 @@ class TypeRacerBot:
 
     def get_text(self):
         """ Returns the text you are supposed to type """
-        return self.driver.find_element_by_css_selector(
-            '#gwt-uid-15 > table > tbody > tr:nth-child(2) > td > table > tbody'
+        return self.driver.find_elements_by_css_selector(
+            'table > tbody > tr:nth-child(2) > td > table > tbody'
             ' > tr:nth-child(1) > td > table > tbody > tr:nth-child(1) > td > div > div'
-        ).text
+        )[3].text
 
     def type_text(self, text):
         """ Types the text with an average WPM of the parameter words_per_minute. """
